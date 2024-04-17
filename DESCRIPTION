@@ -4,10 +4,12 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Dusty", "Gannon", , "gannondu@oregonstate.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6936-8626"))
-Description: This package is a bare-bones package developed for a specific use-case in my consulting practice. I made this public in case
-the code might be useful to others.
+Description: This package is a bare-bones package developed for a specific use-case in my consulting practice. I made this public in case the code might be useful to others.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Imports:
+  TMB,
+  tweedie
