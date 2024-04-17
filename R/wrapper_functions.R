@@ -21,23 +21,24 @@ fit_panel_CAR_tw <- function(form, speff, B, data, fixed_speff = TRUE, sim = FAL
 
   # Convert data to data frame
   data <- as.data.frame(data)
+  root <- system.file(package = "tweedieCARpanel")
 
   # Check existence of model files
-  if (!file.exists(here::here("src/tweedieCAR_fixspdiff.o")) &
-      !file.exists(here::here("src/tweedieCAR_fixspdiff.cpp"))) {
+  if (!file.exists(paste0(root, "/src/tweedieCAR_fixspdiff.o")) &
+      !file.exists(paste0(root, "src/tweedieCAR_fixspdiff.cpp"))) {
     stop("Looking for the model C++ code in ../src/, but could not find it.")
   }
 
   # Compile model code if necessary
-  if (!file.exists("src/tweedieCAR_fixspdiff.o") &
-      file.exists("src/tweedieCAR_fixspdiff.cpp")) {
+  if (!file.exists(paste0(root, "/src/tweedieCAR_fixspdiff.o")) &
+      file.exists(paste0(root, "/src/tweedieCAR_fixspdiff.cpp"))) {
     print("Compiling model code...\n")
-    TMB::compile("src/tweedieCAR_fixspdiff.cpp")
+    TMB::compile(paste0(root, "/src/tweedieCAR_fixspdiff.cpp"))
     print("Done.\n")
   }
 
   # Load compiled model
-  dyn.load(TMB::dynlib("src/tweedieCAR_fixspdiff"))
+  dyn.load(TMB::dynlib(paste0(root, "/src/tweedieCAR_fixspdiff")))
 
   # Prepare data for fitting
   X <- model.matrix(lm(form, data = data))
