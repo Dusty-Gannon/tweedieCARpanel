@@ -25,8 +25,11 @@ fit_panel_CAR_tw <- function(form, speff, B, data, fixed_speff = TRUE, sim = FAL
 
   # Check existence of model files
   if (!file.exists(paste0(root, "/src/tweedieCAR_fixspdiff.o")) &
-      !file.exists(paste0(root, "src/tweedieCAR_fixspdiff.cpp"))) {
-    stop("Looking for the model C++ code in ../src/, but could not find it.")
+      !file.exists(paste0(root, "/src/tweedieCAR_fixspdiff.cpp"))) {
+    stop(paste0(
+      "Looking for the model C++ code in ",
+      root, "/src/", " but could not find it.")
+    )
   }
 
   # Compile model code if necessary
