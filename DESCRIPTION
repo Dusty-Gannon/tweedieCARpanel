@@ -1,10 +1,11 @@
 Package: tweedieCARpanel
-Title: What the Package Does (One Line, Title Case)
+Title: Fit a Conditional Autoregressive Model with a Tweedie Error Distribution to Panel Data
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Dusty", "Gannon", , "gannondu@oregonstate.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6936-8626"))
+Description: This package is a bare-bones package developed for a specific use-case in my consulting practice. I made this public in case
+the code might be useful to others.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
